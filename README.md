@@ -10,7 +10,7 @@ git clone https://github.com/b06608062/number-guessing-game.git
 cd ./number-guessing-game
 yarn install
 ```
-2. Open two terminal windows, and go to ```/number-guessing-game``` folder
-3. In one window, run ```yarn server``` for **backend**
-4. The other window, run ```yarn start``` for **frontend**
+2. Open two terminal windows, and go to ```/number-guessing-game``` folder.
+3. In one window, run ```yarn server``` for **backend**.
+4. The other window, run ```yarn start``` for **frontend**.
 5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
