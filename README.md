@@ -4,7 +4,7 @@
 ![This is an image](https://github.com/b06608062/number-guessing-game/blob/master/demo_image/%E6%88%AA%E5%9C%96%202022-03-25%20%E4%B8%8B%E5%8D%886.27.42.png)
 
 ## Run in local
-1. Download and Install
+1. Download and install.
 ```
 git clone https://github.com/b06608062/number-guessing-game.git
 cd ./number-guessing-game
