@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+import { useState } from 'react';
 import { guess, startGame, restart } from './axios';
 
 function App() {
@@ -9,82 +8,82 @@ function App() {
   const [number, setNumber] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleStart = async ()=>{
-    try{
+  const handleStart = async () => {
+    try {
       let msg = await startGame();
       console.log(msg);
       setHasStarted(true);
-    }catch(e){
+    } catch (e) {
       alert(e.name + ': ' + e.message);
     }
   }
 
-  const handleInput = (value)=>{
+  const handleInput = (value) => {
     setNumber(value);
     setStatus("");
   }
 
-  const handleGuess = async ()=>{
-    try{
+  const handleGuess = async () => {
+    try {
       const response = await guess(number);
-      if(response==="Equal"){
+      if (response === "Equal") {
         setHasWon(true);
-      }else{
+      } else {
         setStatus(response);
         setNumber("");
       }
-    }catch(e){
-      if(e.message==="Network Error"){
+    } catch (e) {
+      if (e.message === "Network Error") {
         alert(e.name + ': ' + e.message);
-      }else{
+      } else {
         setStatus(`${number} is not a legal number.`);
         setNumber("");
       }
     }
   }
 
-  const hanhleRestart = async ()=>{
-    try{
+  const hanhleRestart = async () => {
+    try {
       await restart();
       setHasWon(false);
       setNumber("");
       setStatus("");
-    }catch(e){
+    }catch (e) {
       alert(e.name + ': ' + e.message);
     }
   }
 
-  const startMenu =
+  const startMenu = 
     <div>
       <button onClick={handleStart}> start game </button>
     </div>
 
-  const gameMode =
+  const gameMode = 
     <>
       <p>Guess a number between 1 to 100</p>
-      <input value={number} onChange={(e)=>{handleInput(e.target.value)}}></input>
+      <input value={number} onChange={(e) => handleInput(e.target.value)}></input>
       <button onClick={handleGuess} disabled={!number}>
         guess!
       </button>
       <p>{status}</p>
     </>
 
-  const winningMode = 
+  const winMode = 
     <>
-      <p>you won! the number was {number}.</p>
+      <p>You won! The number was {number}.</p>
       <button onClick={hanhleRestart}> restart </button>
     </>
 
   const game = 
-  <div>
-    {hasWon?winningMode:gameMode}
-  </div>
-
-  return(
-    <div className="App">
-      {hasStarted?game:startMenu}
+    <div>
+      {hasWon ? winMode : gameMode}
     </div>
-  )
+
+  return (
+    <div className="App">
+      {hasStarted ? game : startMenu}
+    </div>
+  );
 }
 
 export default App;
