@@ -7,7 +7,7 @@ const roughScale = (x, base) => {
     let parsed = Number.parseInt(x, base);
     if (Number.isNaN(parsed)) return 0;
     return parsed;
-}
+};
 
 router.post('/start', (_, res) => {
     genNumber();

@@ -5,6 +5,6 @@ const genNumber = (isRestart=false) => {
         number = Math.floor(Math.random() * 100) + 1;
     }
     return number;
-}
+};
 
 export { genNumber };
