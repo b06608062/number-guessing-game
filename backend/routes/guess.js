@@ -20,8 +20,8 @@ router.get('/guess', (req, res) => {
     if (!guessed || guessed < 1 || guessed > 100) {
         res.status(406).send({ msg: 'Not a legal number.' });
     } else {
-        guessed === number ? 
-        res.send({ msg: 'Equal' }) : guessed > number ? 
+        guessed === number ?
+        res.send({ msg: 'Equal' }) : guessed > number ?
         res.send({ msg: `${guessed} is Bigger than target` }) : res.send({ msg: `${guessed} is smaller than target` });
     }
 });
